@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "livres",
+  "info": {
+    "singularName": "livre",
+    "pluralName": "livres",
+    "displayName": "book",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "book_cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "livres"
+    },
+    "borrow": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::emprunt.emprunt",
+      "mappedBy": "book"
+    }
+  }
+}

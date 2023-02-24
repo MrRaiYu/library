@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: proxibook_db
+    image: postgres:15.1
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: proxibook
+    volumes:
+      - db_volume:/var/lib/postgresql
+    ports:
+      - "5433:5432"
+
+volumes:
+  db_volume:

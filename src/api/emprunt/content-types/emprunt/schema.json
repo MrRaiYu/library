@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emprunts",
+  "info": {
+    "singularName": "emprunt",
+    "pluralName": "emprunts",
+    "displayName": "borrowing",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "borrow": {
+      "type": "boolean",
+      "default": true
+    },
+    "date_borrowing": {
+      "type": "datetime"
+    },
+    "date_return": {
+      "type": "date",
+      "required": false
+    },
+    "book": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::livre.livre",
+      "inversedBy": "borrow"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "borrowings"
+    }
+  }
+}
